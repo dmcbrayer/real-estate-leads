@@ -1,0 +1,24 @@
+{
+  "name": "real-estate-leads",
+  "description": "Tech demo",
+  "main": "Gulpfile.js",
+  "authors": [
+    "Daniel McBrayer"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dmcbrayer/real-estate-leads",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation-sites": "~6.1.2"
+  }
+}

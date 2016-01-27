@@ -1,5 +1,6 @@
 var assetDir = './gulp/assets';
 var outputDir = './public/assets';
+var bowerDir = './bower_components';
 
 module.exports = {
 
@@ -16,6 +17,9 @@ module.exports = {
             assetDir + '/javascripts/components/main.jsx',
         ],
         scripts: [
+            bowerDir + '/what-input/what-input.js',
+            bowerDir + '/jquery/dist/jquery.js',
+            bowerDir + '/foundation-sites/dist/foundation.js',
             assetDir + '/javascripts/**/*.js', 
         ],
         images: assetDir + '/images/**/*',
