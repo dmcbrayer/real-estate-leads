@@ -16,7 +16,11 @@ var config          = require('./gulp-config');
 
 gulp.task('css', function() { 
   return gulp.src(config.src.sass)
-      .pipe(sass())
+      .pipe(sass({
+        includePaths: [
+          config.bowerDir + '/bootstrap-sass/assets/stylesheets'
+        ]
+      }))
       .pipe(minifyCss())
        .pipe(gulp.dest(config.dest.sass)); 
 });
