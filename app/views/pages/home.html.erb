@@ -1,8 +1,32 @@
 <div class="container">
   <h1>Hello World</h1>
 
+  <input id="autocomplete" class="controls" type="text" placeholder="Search Box">
+  <br />
+  <input id="latitude" placeholder="latitude"><input id="longitude" placeholder="longitude">
+  <br />
+
   <%= link_to 'Click here', map_path %>
 </div>
+
+<script>
+
+  var initAutocomplete = function() {
+    autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace().geometry.location;
+      var lat = place.lat();
+      var lng = place.lng();
+      $('#latitude').val(lat);
+      $('#longitude').val(lng); 
+    });
+  };
+
+  $(document).on('ready', initAutocomplete);
+</script>
 
 
 
