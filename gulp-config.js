@@ -11,6 +11,7 @@ module.exports = {
         scripts: assetDir + '/javascripts/**/*.js',
         react: assetDir + '/javascripts/**/*.jsx',
         images: assetDir + '/images/**/*',
+        pages: './app/views/**/*'
     },
 
     src: {

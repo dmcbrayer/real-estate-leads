@@ -51,6 +51,7 @@ gulp.task('serve', ['build'], function() {
     gulp.watch(config.watch.sass, ['css', reload]);
     gulp.watch(config.watch.scripts, ['scripts', reload]);
     gulp.watch(config.watch.react, ['react', reload]);
+    gulp.watch(config.watch.pages, ['', reload]);
 });
 
 gulp.task('default', ['serve']);

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  get '/map', to: 'pages#map'
+  get '/thanks', to: 'pages#thanks'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
