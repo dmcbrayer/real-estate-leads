@@ -10,7 +10,7 @@ export default class SecondStep extends React.Component {
     return(
       <div>
         <h1>Last Step!</h1>
-        <h5>Why are you requesting this report?</h5>
+        <p>Why are you requesting this report?</p>
 
        <SelectAndPhone  phone={this.props.phone}
                         selectValue={this.props.selectValue}

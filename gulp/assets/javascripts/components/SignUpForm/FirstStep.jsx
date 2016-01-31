@@ -10,7 +10,7 @@ export default class FirstStep extends React.Component {
     return(
       <div>
         <h1>Got it!</h1>
-        <h3>Where should we email your free report?</h3>
+        <p>Where should we email your free report?</p>
 
         <NameAndEmail name={this.props.name} 
                       email={this.props.email} 

@@ -2,15 +2,13 @@ html, body {
   height: 100%; margin: 0; padding: 0; 
 }
 
-#map_canvas { 
-  height: 100vh; 
+.jumbotron-hero {
+  @extend .jumbotron;
+  padding-top: 15em;
+  padding-bottom: 5em;
 }
 
-.address-form {
-}
-
-.address-input {
-  @extend .form-control;
-  height: auto;
-  padding: 1em;
+.hero-secondary {
+  max-width: 75%;
+  margin: auto;
 }

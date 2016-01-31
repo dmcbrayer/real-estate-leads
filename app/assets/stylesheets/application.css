@@ -13,7 +13,3 @@
  *= require main
  *= require_self
  */
-
-.pac-logo:after {
-  display:none;
-}

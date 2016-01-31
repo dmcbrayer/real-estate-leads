@@ -1,4 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Montserrat);
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family: "Montserrat";
+
 // Styles go here
 @import "bootstrap";
 @import "global";
+@import "map";
+@import "forms";
 
