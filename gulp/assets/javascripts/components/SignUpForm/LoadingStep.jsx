@@ -14,6 +14,7 @@ export default class LoadingStep extends React.Component {
     return(
       <div>
         <h1>Loading...</h1>
+        <span className="fa fa-spinner fa-spin"></span>
       </div>
     )
   }
