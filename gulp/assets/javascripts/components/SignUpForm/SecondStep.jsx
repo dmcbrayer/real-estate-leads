@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectAndPhone from './SelectAndPhone.jsx';
 
-export default class LastStep extends React.Component {
+export default class SecondStep extends React.Component {
   constructor(props) {
     super(props);
   }

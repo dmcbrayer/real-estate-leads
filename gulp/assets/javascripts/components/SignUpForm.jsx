@@ -1,6 +1,8 @@
 import React from 'react';
-import FirstStep from './FirstStep.jsx';
-import LastStep from './LastStep.jsx';
+import FirstStep from './SignUpForm/FirstStep.jsx';
+import SecondStep from './SignUpForm/SecondStep.jsx';
+import LoadingStep from './SignUpForm/LoadingStep.jsx';
+import LastStep from './SignUpForm/LastStep.jsx';
 import request from 'superagent';
 
 export default class SignUpForm extends React.Component {
@@ -73,11 +75,15 @@ export default class SignUpForm extends React.Component {
                           handleChange={this.handleChange}
                           buttonClick={this.advanceStep} />;
       case 2:
-        return <LastStep  phone={this.state.phone}
+        return <SecondStep  phone={this.state.phone}
                           selectValue={this.state.selectValue}
                           handleChange={this.handleChange}
                           buttonClick={this.previousStep}
                           onSubmit={this.handleSubmit} />;
+      case 3:
+        return <LoadingStep />;
+      case 4:
+        return <LastStep />;
     }
   }
 
