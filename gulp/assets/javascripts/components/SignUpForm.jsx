@@ -10,7 +10,7 @@ export default class SignUpForm extends React.Component {
       name: '',
       email: '',
       phone: '',
-      selectValue: 'A',
+      selectValue: 1,
       step: 1
     }
 
@@ -48,8 +48,8 @@ export default class SignUpForm extends React.Component {
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
-        survey: this.state.survey,
-        address: this.state.address
+        survey: this.state.selectValue,
+        address: this.props.address
       }
     }
 
