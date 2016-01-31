@@ -7,7 +7,7 @@ html, body {
 }
 
 .address-form {
-  width: 100%;
+  @extend .form-inline;
 }
 
 .address-input {

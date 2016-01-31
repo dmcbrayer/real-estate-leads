@@ -1,15 +1,17 @@
 <div class="container-fluid">
-  <div class="jumbotron">
+  <div class="jumbotron text-center">
     <h1>What's your home worth?</h1>
     <h4>The market has shifted, and home values have changed. If you're thinking about selling soon, check your home's value below for free.</h4>
-    <%= form_tag('/map', method: :get, class: "address-form") do %>
-      <div class="form-group">
-        <%= text_field_tag :address, nil, class: "address-input" %>
-      </div>
-      <%= hidden_field_tag :latitude, id: "latitude" %>
-      <%= hidden_field_tag :longitude, id: "longitude" %>
-      <button type="submit" class="btn btn-primary">Go</button>
-    <% end %>
+    <div>
+      <%= form_tag('/map', method: :get, class: "address-form") do %>
+        <div class="form-group">
+          <%= text_field_tag :address, nil, class: "address-input" %>
+        </div>
+        <%= hidden_field_tag :latitude, id: "latitude" %>
+        <%= hidden_field_tag :longitude, id: "longitude" %>
+        <button type="submit" class="btn btn-primary"><span class="fa fa-search"></span></button>
+      <% end %>
+    </div>
   </div>
 
 </div>
