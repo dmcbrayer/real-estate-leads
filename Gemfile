@@ -8,7 +8,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise'
 gem 'react-rails', '~> 1.5.0'
+gem 'activeadmin', github: 'activeadmin'
 
 group :production do
   gem 'rails_12factor'
