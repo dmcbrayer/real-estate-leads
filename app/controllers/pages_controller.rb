@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   end
 
   def map
+    @latitude = params[:latitude]
+    @longitude = params[:longitude]
   end
 
   def thanks

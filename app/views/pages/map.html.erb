@@ -11,15 +11,19 @@
 </div>
 
 <script>
+  var latitude = <%= @latitude %>;
+  var longitude = <%= @longitude %>;
+
   var map;
   var mapInit = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 4
+      center: {lat: latitude, lng: longitude},
+      zoom: 16,
+      scrollwheel: false
     });
 
     var marker = new google.maps.Marker({
-      position: {lat: -34.397, lng: 150.644},
+      position: {lat: latitude, lng: longitude},
       map: map,
       title: 'Test'
     });

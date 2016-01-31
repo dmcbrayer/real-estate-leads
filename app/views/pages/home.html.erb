@@ -1,19 +1,20 @@
 <div class="container">
   <h1>Hello World</h1>
 
-  <input id="autocomplete" class="controls" type="text" placeholder="Search Box">
-  <br />
-  <input id="latitude" placeholder="latitude"><input id="longitude" placeholder="longitude">
-  <br />
+  <%= form_tag('/map', method: :get) do %>
+    <%= text_field_tag :address %>
+    <%= hidden_field_tag :latitude, id: "latitude" %>
+    <%= hidden_field_tag :longitude, id: "longitude" %>
+    <%= submit_tag("Go") %>
+  <% end %>
 
-  <%= link_to 'Click here', map_path %>
 </div>
 
 <script>
 
   var initAutocomplete = function() {
     autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')),
+      (document.getElementById('address')),
       {types: ['geocode']});
 
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
