@@ -8,6 +8,4 @@ class PagesController < ApplicationController
     @longitude = params[:longitude]
   end
 
-  def thanks
-  end
 end

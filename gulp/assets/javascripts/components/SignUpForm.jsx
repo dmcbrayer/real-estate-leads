@@ -1,9 +1,9 @@
 import React from 'react';
+import request from 'superagent';
 import FirstStep from './SignUpForm/FirstStep.jsx';
 import SecondStep from './SignUpForm/SecondStep.jsx';
 import LoadingStep from './SignUpForm/LoadingStep.jsx';
 import LastStep from './SignUpForm/LastStep.jsx';
-import request from 'superagent';
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -24,14 +24,20 @@ export default class SignUpForm extends React.Component {
   }
 
   advanceStep() {
+    var step = this.state.step;
+    step++;
+
     this.setState({
-      step: 2
+      step: step
     });
   }
 
   previousStep() {
+    var step = this.state.step;
+    step--;
+
     this.setState({
-      step: 1
+      step: step
     });
   }
 
@@ -42,7 +48,6 @@ export default class SignUpForm extends React.Component {
   }
 
   handleSubmit() {
-    console.log("submit");
     var url = '/leads';
     
     var data = {
@@ -62,9 +67,10 @@ export default class SignUpForm extends React.Component {
       if(err) {
         console.log(err);
       } else {
-        window.location = "/thanks";
+        console.log(res);
+        this.advanceStep();
       }
-    });
+    }.bind(this));
   }
 
   renderStep() {
@@ -76,12 +82,12 @@ export default class SignUpForm extends React.Component {
                           buttonClick={this.advanceStep} />;
       case 2:
         return <SecondStep  phone={this.state.phone}
-                          selectValue={this.state.selectValue}
-                          handleChange={this.handleChange}
-                          buttonClick={this.previousStep}
-                          onSubmit={this.handleSubmit} />;
+                            selectValue={this.state.selectValue}
+                            handleChange={this.handleChange}
+                            buttonClick={this.previousStep}
+                            onSubmit={this.handleSubmit} />;
       case 3:
-        return <LoadingStep />;
+        return <LoadingStep onLoaded={this.advanceStep} />;
       case 4:
         return <LastStep />;
     }
