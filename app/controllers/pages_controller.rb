@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @location = params[:location]
   end
 
   def map

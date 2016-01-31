@@ -1,7 +1,11 @@
 <div class="container-fluid">
   <section class="jumbotron-hero">
     <div class="text-center">
-      <h1>What's your home worth?</h1>
+      <% if @location %>
+        <h1>What's your home in <%= @location %> worth?</h1>
+      <% else %>
+        <h1>What's your home worth?</h1>
+      <% end %>
       <p class="hero-secondary">The market has shifted, and home values have changed. If you're thinking about selling soon, check your home's value below for free.</p>
     </div>
     <div class="text-center">
