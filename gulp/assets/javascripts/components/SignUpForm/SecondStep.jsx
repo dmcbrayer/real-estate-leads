@@ -9,6 +9,8 @@ export default class SecondStep extends React.Component {
   render() {
     return(
       <div>
+        <button onClick={this.props.buttonClick} 
+                className="btn btn-default btn-sm"><span className="fa fa-arrow-left"></span></button>
         <h1>Last Step!</h1>
         <p>Why are you requesting this report?</p>
 
@@ -16,8 +18,7 @@ export default class SecondStep extends React.Component {
                         selectValue={this.props.selectValue}
                         handleChange={this.props.handleChange} />
 
-        <button onClick={this.props.buttonClick} className="btn btn-default">Go Back</button>
-        <button onClick={this.props.onSubmit} className="btn btn-primary">Submit</button>
+        <button onClick={this.props.onSubmit} className="btn btn-primary btn-lg">Submit</button>
       </div>
     )
   }
