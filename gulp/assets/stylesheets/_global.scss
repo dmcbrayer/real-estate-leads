@@ -5,3 +5,13 @@ html, body {
 #map_canvas { 
   height: 100vh; 
 }
+
+.address-form {
+  width: 100%;
+}
+
+.address-input {
+  @extend .form-control;
+  height: auto;
+  padding: 1em;
+}

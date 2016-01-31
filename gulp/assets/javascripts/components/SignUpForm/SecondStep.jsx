@@ -16,8 +16,8 @@ export default class SecondStep extends React.Component {
                         selectValue={this.props.selectValue}
                         handleChange={this.props.handleChange} />
 
-        <button onClick={this.props.buttonClick}>Go Back</button>
-        <button onClick={this.props.onSubmit}>Submit</button>
+        <button onClick={this.props.buttonClick} className="btn btn-default">Go Back</button>
+        <button onClick={this.props.onSubmit} className="btn btn-primary">Submit</button>
       </div>
     )
   }

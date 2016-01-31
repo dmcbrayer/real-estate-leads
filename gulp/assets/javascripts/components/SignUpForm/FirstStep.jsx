@@ -16,7 +16,7 @@ export default class FirstStep extends React.Component {
                       email={this.props.email} 
                       handleChange={this.props.handleChange} />
 
-        <button onClick={this.props.buttonClick}>Send my report</button>
+        <button onClick={this.props.buttonClick} className="btn btn-primary">Send my report</button>
       </div>
     )
   }
