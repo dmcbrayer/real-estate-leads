@@ -8,6 +8,8 @@ export default class SignUpForm extends React.Component {
     this.state = {
       name: '',
       email: '',
+      phone: '',
+      selectValue: 'A',
       step: 1
     }
 
@@ -43,7 +45,10 @@ export default class SignUpForm extends React.Component {
                           handleChange={this.handleChange}
                           buttonClick={this.advanceStep} />;
       case 2:
-        return <LastStep buttonClick={this.previousStep} />;
+        return <LastStep  phone={this.state.phone}
+                          selectValue={this.state.selectValue}
+                          handleChange={this.handleChange}
+                          buttonClick={this.previousStep} />;
     }
   }
 
