@@ -10,13 +10,13 @@ export default class NameAndEmail extends React.Component {
       <div className="form-group">
         <input  type="text" 
                 className="form-control"
-                placeholder="name" 
+                placeholder="Name" 
                 value={this.props.name} 
                 onChange={this.props.handleChange.bind(this, 'name')} />
         <br />
         <input  type="text"
                 className="form-control" 
-                placeholder="email" 
+                placeholder="Email" 
                 value={this.props.email} 
                 onChange={this.props.handleChange.bind(this, 'email')}/>
       </div>

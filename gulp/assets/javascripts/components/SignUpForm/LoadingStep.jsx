@@ -12,9 +12,11 @@ export default class LoadingStep extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="form-sidebar">
         <h1>Loading...</h1>
-        <span className="fa fa-spinner fa-spin"></span>
+        <div className="loading-container">
+          <span className="fa fa-spinner fa-spin"></span>
+        </div>
       </div>
     )
   }

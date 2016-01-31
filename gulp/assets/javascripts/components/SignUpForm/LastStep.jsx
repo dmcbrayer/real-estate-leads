@@ -7,7 +7,7 @@ export default class LastStep extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="form-sidebar">
         <h1>Success!</h1>
 
         <p>Your stuff will be sent to you shortly.</p>

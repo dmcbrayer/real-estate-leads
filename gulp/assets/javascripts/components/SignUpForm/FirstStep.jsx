@@ -8,7 +8,7 @@ export default class FirstStep extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="form-sidebar">
         <h1>Got it!</h1>
         <p>Where should we email your free report?</p>
 
