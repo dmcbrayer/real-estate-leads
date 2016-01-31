@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'react-rails', '~> 1.5.0'
 gem 'activeadmin', github: 'activeadmin'
+gem 'puma'
 
 group :production do
   gem 'rails_12factor'
