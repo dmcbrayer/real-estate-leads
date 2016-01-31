@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/map', to: 'pages#map'
   get '/thanks', to: 'pages#thanks'
+  post '/leads', to: 'leads#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
