@@ -17,6 +17,7 @@ export default class LastStep extends React.Component {
                         handleChange={this.props.handleChange} />
 
         <button onClick={this.props.buttonClick}>Go Back</button>
+        <button onClick={this.props.onSubmit}>Submit</button>
       </div>
     )
   }

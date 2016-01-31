@@ -4,11 +4,9 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.create(lead_params)
     if @lead.save
-      flash[:notice] = "Thanks!"
-      redirect_to thanks_path
+      render json: @lead, status: :ok
     else
-      flash[:danger] = "Nope"
-      redirect_to root_url
+      render json: { errors: ["Problem saving lead"] }, status: 422
     end
   end
 

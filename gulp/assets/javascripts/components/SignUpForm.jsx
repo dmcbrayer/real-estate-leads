@@ -1,6 +1,7 @@
 import React from 'react';
 import FirstStep from './FirstStep.jsx';
 import LastStep from './LastStep.jsx';
+import request from 'superagent';
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class SignUpForm extends React.Component {
 
     this.advanceStep = this.advanceStep.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.previousStep = this.previousStep.bind(this);
     this.renderStep = this.renderStep.bind(this);
   }
@@ -37,6 +39,32 @@ export default class SignUpForm extends React.Component {
     this.setState(change);
   }
 
+  handleSubmit() {
+    console.log("submit");
+    var url = '/leads';
+    
+    var data = {
+      lead: {
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phone,
+        survey: this.state.survey,
+        address: this.state.address
+      }
+    }
+
+    request.post(url)
+    .send(data)
+    .end(function(err, res) {
+      console.log(res);
+      if(err) {
+        console.log(err);
+      } else {
+        window.location = "/thanks";
+      }
+    });
+  }
+
   renderStep() {
     switch(this.state.step) {
       case 1:
@@ -48,7 +76,8 @@ export default class SignUpForm extends React.Component {
         return <LastStep  phone={this.state.phone}
                           selectValue={this.state.selectValue}
                           handleChange={this.handleChange}
-                          buttonClick={this.previousStep} />;
+                          buttonClick={this.previousStep}
+                          onSubmit={this.handleSubmit} />;
     }
   }
 
