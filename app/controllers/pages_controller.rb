@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
   def map
     @address = params[:address]
-    @latitude = params[:latitude]
-    @longitude = params[:longitude]
+    @latitude = params[:latitude] || "33.5206608"
+    @longitude = params[:longitude] || "-86.80248999999998"
   end
 
 end
