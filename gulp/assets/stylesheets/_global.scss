@@ -2,13 +2,46 @@ html, body {
   height: 100%; margin: 0; padding: 0; 
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 .jumbotron-hero {
   @extend .jumbotron;
-  padding-top: 15em;
+  background-color: #fff;
+  padding-top: 10em;
   padding-bottom: 5em;
 }
 
 .hero-secondary {
   max-width: 75%;
   margin: auto;
+}
+
+.testimonials {
+  background-color: #c5deea;
+  padding-top: 1em;
+
+  .user-block {
+    margin-top: 1em;
+
+    .user-image {
+      float: left;
+      margin-right: 1em;
+    }
+
+    .user-info {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.testimonial {
+  max-width: 85%;
+  margin: 1em auto;
+  padding: 2em;
+  border-radius: 5px;
+  background-color: lighten(#c5deea, 13%);
+  font-size: 1.2em;
 }
