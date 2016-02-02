@@ -18,9 +18,16 @@ html, body {
   margin: auto;
 }
 
+.steps {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: #c5deea;
+}
+
 .testimonials {
   background-color: #c5deea;
   padding-top: 1em;
+  padding-bottom: 2em;
 
   .user-block {
     margin-top: 1em;
@@ -44,4 +51,18 @@ html, body {
   border-radius: 5px;
   background-color: lighten(#c5deea, 13%);
   font-size: 1.2em;
+}
+
+footer {
+  background-color: #5ba9cf;
+  padding: 4em;
+  color: white;
+
+  a {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }

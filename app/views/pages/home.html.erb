@@ -1,8 +1,8 @@
 
 <%= render 'layouts/navbar' %>
 
-<div class="container-fluid">
-  <section class="jumbotron-hero">
+
+  <section class="jumbotron-hero container">
     <div class="text-center">
       <% if @location %>
         <h1>What's your home in <%= @location %> worth?</h1>
@@ -20,7 +20,7 @@
       <% end %>
     </div>
   </section>
-  <section class="testimonials">
+  <section class="testimonials container-fluid">
     <div class="row">
       <div class="col-sm-4">
         <div class="testimonial">
@@ -60,7 +60,28 @@
       </div>
     </div>
   </section>
-</div>
+  <section class="steps">
+    <div class="container">
+      <div class"row">
+        <div class="col-sm-4 text-center">
+          <img src="http://placehold.it/150x150" class="img-circle" />
+          <h3>Enter Your Information</h3>
+          <p>Tell us about your home, and where to send your report.</p>
+        </div>
+        <div class="col-sm-4 text-center">
+          <img src="http://placehold.it/150x150" class="img-circle" />
+          <h3>Enter Your Information</h3>
+          <p>Tell us about your home, and where to send your report.</p>
+        </div>
+        <div class="col-sm-4 text-center">
+          <img src="http://placehold.it/150x150" class="img-circle" />
+          <h3>Enter Your Information</h3>
+          <p>Tell us about your home, and where to send your report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 <script>
   var initAutocomplete = function() {
