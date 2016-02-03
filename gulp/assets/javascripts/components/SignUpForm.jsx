@@ -23,6 +23,10 @@ export default class SignUpForm extends React.Component {
     this.renderStep = this.renderStep.bind(this);
   }
 
+  componentDidMount() {
+    //nothing
+  }
+
   advanceStep() {
     var step = this.state.step;
     step++;
@@ -30,6 +34,8 @@ export default class SignUpForm extends React.Component {
     this.setState({
       step: step
     });
+
+    console.log(fbq('track', 'Lead'));
   }
 
   previousStep() {
