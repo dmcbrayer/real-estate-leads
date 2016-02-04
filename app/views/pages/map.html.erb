@@ -17,6 +17,9 @@
 <script>
   var latitude = <%= @latitude %>;
   var longitude = <%= @longitude %>;
+  var address = "<%= @address %>";
+
+  var infoContent = '<div style="width:250px; height:auto; padding:10px; font-size:18px; color:#0d3455; font-family: "Montserrat";">' + address + '</div>';
 
   var map;
   var mapInit = function() {
@@ -29,8 +32,12 @@
     var marker = new google.maps.Marker({
       position: {lat: latitude, lng: longitude},
       map: map,
-      title: 'Test'
+      animation: google.maps.Animation.DROP,
     });
+
+    var infowindow = new google.maps.InfoWindow();
+    infowindow.setContent(infoContent); 
+    infowindow.open(map, marker); 
   };
 
   $(document).on('ready', mapInit)
