@@ -9,22 +9,42 @@ export default class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lead: {},
       name: '',
       email: '',
+      address: this.props.address,
       phone: '',
       selectValue: 1,
       step: 1
     }
 
-    this.advanceStep = this.advanceStep.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.previousStep = this.previousStep.bind(this);
-    this.renderStep = this.renderStep.bind(this);
+    this.advanceStep      = this.advanceStep.bind(this);
+    this.handleChange     = this.handleChange.bind(this);
+    this.handleSubmit     = this.handleSubmit.bind(this);
+    this.previousStep     = this.previousStep.bind(this);
+    this.renderStep       = this.renderStep.bind(this);
+    this.advanceAndSubmit = this.advanceAndSubmit.bind(this);
   }
 
   componentDidMount() {
-    //nothing
+    var url = '/leads';
+    
+    var data = {
+      lead: {
+        address: this.props.address
+      }
+    }
+
+    request.post(url)
+    .send(data)
+    .end(function(err, res) {
+      console.log(res);
+      if(err) {
+        console.log(err);
+      } else {
+        this.setState({lead: res.body});
+      }
+    }.bind(this));
   }
 
   advanceStep() {
@@ -34,8 +54,11 @@ export default class SignUpForm extends React.Component {
     this.setState({
       step: step
     });
+  }
 
-    console.log(fbq('track', 'Lead'));
+  advanceAndSubmit() {
+    this.advanceStep();
+    this.handleSubmit();
   }
 
   previousStep() {
@@ -54,27 +77,27 @@ export default class SignUpForm extends React.Component {
   }
 
   handleSubmit() {
-    var url = '/leads';
-    
+    var leadId = this.state.lead.id;
+    var url = '/leads/' + leadId;
+
     var data = {
       lead: {
+        address: this.state.lead.address,
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
         survey: this.state.selectValue,
-        address: this.props.address
       }
-    }
+    };
 
-    request.post(url)
+    request.patch(url)
     .send(data)
     .end(function(err, res) {
       console.log(res);
       if(err) {
         console.log(err);
       } else {
-        console.log(res);
-        this.advanceStep();
+        this.setState({lead: res.body});
       }
     }.bind(this));
   }
@@ -85,13 +108,13 @@ export default class SignUpForm extends React.Component {
         return <FirstStep name={this.state.name} 
                           email={this.state.email} 
                           handleChange={this.handleChange}
-                          buttonClick={this.advanceStep} />;
+                          buttonClick={this.advanceAndSubmit} />;
       case 2:
         return <SecondStep  phone={this.state.phone}
                             selectValue={this.state.selectValue}
                             handleChange={this.handleChange}
                             buttonClick={this.previousStep}
-                            onSubmit={this.handleSubmit} />;
+                            onSubmit={this.advanceAndSubmit} />;
       case 3:
         return <LoadingStep onLoaded={this.advanceStep} />;
       case 4:

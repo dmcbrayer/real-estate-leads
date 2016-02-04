@@ -8,6 +8,7 @@ export default class LoadingStep extends React.Component {
 
   componentDidMount() {
     setTimeout(this.props.onLoaded, 2000);
+    fbq('track', 'Lead');
   }
 
   render() {
