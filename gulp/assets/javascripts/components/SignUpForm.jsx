@@ -15,14 +15,17 @@ export default class SignUpForm extends React.Component {
       address: this.props.address,
       phone: '',
       selectValue: 1,
-      step: 1
+      step: 1,
+      error: null,
     }
 
     this.advanceStep      = this.advanceStep.bind(this);
+    this.clearError       = this.clearError.bind(this);
     this.handleChange     = this.handleChange.bind(this);
+    this.handleError      = this.handleError.bind(this);
     this.handleSubmit     = this.handleSubmit.bind(this);
-    this.previousStep     = this.previousStep.bind(this);
     this.renderStep       = this.renderStep.bind(this);
+    this.renderError      = this.renderError.bind(this);
     this.advanceAndSubmit = this.advanceAndSubmit.bind(this);
   }
 
@@ -38,7 +41,6 @@ export default class SignUpForm extends React.Component {
     request.post(url)
     .send(data)
     .end(function(err, res) {
-      console.log(res);
       if(err) {
         console.log(err);
       } else {
@@ -61,19 +63,22 @@ export default class SignUpForm extends React.Component {
     this.handleSubmit();
   }
 
-  previousStep() {
-    var step = this.state.step;
-    step--;
-
-    this.setState({
-      step: step
-    });
+  clearError() {
+    this.setState({error: null});
   }
 
   handleChange(name, event) {
     var change = {};
     change[name] = event.target.value;
     this.setState(change);
+  }
+
+  handleError(error) {
+    var thing = error;
+
+    this.setState({
+      error: thing,
+    });
   }
 
   handleSubmit() {
@@ -93,7 +98,6 @@ export default class SignUpForm extends React.Component {
     request.patch(url)
     .send(data)
     .end(function(err, res) {
-      console.log(res);
       if(err) {
         console.log(err);
       } else {
@@ -102,18 +106,25 @@ export default class SignUpForm extends React.Component {
     }.bind(this));
   }
 
+  renderError() {
+    if(this.state.error !== null) {
+      return <h3>{this.state.error}</h3>;
+    }
+  }
+
   renderStep() {
     switch(this.state.step) {
       case 1:
         return <FirstStep name={this.state.name} 
                           email={this.state.email} 
                           handleChange={this.handleChange}
+                          handleError={this.handleError}
+                          clearError={this.clearError}
                           buttonClick={this.advanceAndSubmit} />;
       case 2:
         return <SecondStep  phone={this.state.phone}
                             selectValue={this.state.selectValue}
                             handleChange={this.handleChange}
-                            buttonClick={this.previousStep}
                             onSubmit={this.advanceAndSubmit} />;
       case 3:
         return <LoadingStep onLoaded={this.advanceStep} />;
@@ -125,6 +136,7 @@ export default class SignUpForm extends React.Component {
   render() {
     return(
       <div>
+        { this.renderError() }
         { this.renderStep() }
       </div>
     )

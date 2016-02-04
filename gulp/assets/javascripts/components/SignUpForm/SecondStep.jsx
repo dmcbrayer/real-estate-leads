@@ -9,8 +9,6 @@ export default class SecondStep extends React.Component {
   render() {
     return(
       <div className="form-sidebar">
-        <button onClick={this.props.buttonClick} 
-                className="btn btn-default btn-sm"><span className="fa fa-arrow-left"></span></button>
         <h1>Last Step!</h1>
         <p>Why are you requesting this report?</p>
 
