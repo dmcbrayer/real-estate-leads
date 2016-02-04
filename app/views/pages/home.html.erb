@@ -1,26 +1,27 @@
 
 <%= render 'layouts/navbar' %>
+<div id="checkvalue"></div>
 
-
-  <section class="jumbotron-hero container">
-    <div class="text-center">
-      <% if @location %>
-        <h1>What's your home in <%= @location %> worth?</h1>
-      <% else %>
-        <h1>What's your home worth?</h1>
-      <% end %>
-      <p class="hero-secondary">The market has shifted, and home values have changed. If you're thinking about selling soon, check your home's value below for free.</p>
-    </div>
-    <div class="text-center">
-      <%= form_tag('/map', method: :get) do %>
-        <%= text_field_tag :address, nil, required: true, class: "address-input" %>
-        <%= hidden_field_tag :latitude, id: "latitude" %>
-        <%= hidden_field_tag :longitude, id: "longitude" %>
-        <button type="submit" class="btn btn-primary search-button"><span class="fa fa-search fa-3x"></span></button>
-      <% end %>
-    </div>
-  </section>
-  <section class="testimonials container-fluid">
+<section class="jumbotron-hero container">
+  <div class="text-center">
+    <% if @location %>
+      <h1>What's your home in <%= @location %> worth?</h1>
+    <% else %>
+      <h1>What's your home worth?</h1>
+    <% end %>
+    <p class="hero-secondary">The market has shifted, and home values have changed. If you're thinking about selling soon, check your home's value below for free.</p>
+  </div>
+  <div class="text-center">
+    <%= form_tag('/map', method: :get) do %>
+      <%= text_field_tag :address, nil, required: true, class: "address-input" %>
+      <%= hidden_field_tag :latitude, id: "latitude" %>
+      <%= hidden_field_tag :longitude, id: "longitude" %>
+      <button type="submit" class="btn btn-primary search-button"><span class="fa fa-search fa-3x"></span></button>
+    <% end %>
+  </div>
+</section>
+<section class="main-info">
+  <div class="testimonials container-fluid">
     <div class="row">
       <div class="col-sm-4">
         <div class="testimonial">
@@ -59,8 +60,9 @@
         </div>
       </div>
     </div>
-  </section>
-  <section class="steps">
+  </div>
+
+  <div class="steps">
     <div class="container">
       <div class"row">
         <div class="col-sm-4 text-center">
@@ -70,17 +72,22 @@
         </div>
         <div class="col-sm-4 text-center">
           <img src="http://placehold.it/150x150" class="img-circle" />
-          <h3>Enter Your Information</h3>
-          <p>Tell us about your home, and where to send your report.</p>
+          <h3>We'll Create a Report</h3>
+          <p>We'll build a personalized report for your home.</p>
         </div>
         <div class="col-sm-4 text-center">
           <img src="http://placehold.it/150x150" class="img-circle" />
-          <h3>Enter Your Information</h3>
-          <p>Tell us about your home, and where to send your report.</p>
+          <h3>You'll Receive the Report</h3>
+          <p>We will email you the report and follow up to see what you think.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div class="check-value">
+    <a href="#checkvalue" class="btn btn-primary btn-xl">Check your home's value!</a>
+  </div>
+</section>
 
 
 <script>

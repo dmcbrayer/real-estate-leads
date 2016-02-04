@@ -2,6 +2,11 @@ html, body {
   height: 100%; margin: 0; padding: 0; 
 }
 
+.navbar-prime {
+  background-color: white;
+  border: none;
+}
+
 .container-fluid {
   padding: 0;
 }
@@ -18,14 +23,29 @@ html, body {
   margin: auto;
 }
 
-.steps {
-  padding-top: 2em;
-  padding-bottom: 2em;
+.main-info {
   background-color: #c5deea;
 }
 
+.steps {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+.check-value {
+  text-align: center;
+  padding: 4em;
+}
+
+.btn-xl {
+  padding: 1em 3em;
+  font-size: 24px;
+  line-height: 1.333;
+  border-radius: 6px;
+}
+
 .testimonials {
-  background-color: #c5deea;
   padding-top: 1em;
   padding-bottom: 2em;
 
