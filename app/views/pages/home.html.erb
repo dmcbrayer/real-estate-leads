@@ -1,9 +1,8 @@
 
-
 <div id="checkvalue"></div>
-<section class="container-fluid home-bg">
-  <div class="overlay">
-    <%= render 'layouts/navbar' %>
+<section class="home-bg">
+  <%= render 'layouts/navbar' %>
+  <div class="container">
     <div class="jumbotron-hero">
       <div class="text-center">
         <% if @location %>
@@ -89,7 +88,7 @@
   </div>
 
   <div class="check-value">
-    <a href="#checkvalue" class="btn btn-primary btn-xl">Check your home's value!</a>
+    <a href="#checkvalue" class="btn btn-primary btn-xl"><span class="fa fa-check"></span>  Check your home's value!</a>
   </div>
 </section>
 

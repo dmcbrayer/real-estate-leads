@@ -1,0 +1,11 @@
+.navbar-brand--home {
+  @extend .navbar-brand;
+  color: #fff;
+  &:hover {
+    color: transparentize(#fff, 0.5);
+  }
+}
+
+.navbar-prime {
+  background-color: transparent;
+}

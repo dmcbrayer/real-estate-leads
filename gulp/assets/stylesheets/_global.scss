@@ -8,61 +8,8 @@ html, body {
   height: 100%; margin: 0; padding: 0; 
 }
 
-.navbar-brand {
-  color: #fff;
-  &:hover {
-    color: transparentize(#fff, 0.5);
-  }
-}
-
-.navbar-prime {
-  background-color: transparent;
-  padding-left: 2em;
-}
-
 .container-fluid {
   padding: 0;
-}
-
-.home-bg {
-  background-image: url("background.jpg");
-  background-size: cover;
-}
-
-.jumbotron-hero {
-  @extend .jumbotron;
-  color: $hero-text-color;
-  background-color: transparent;
-  padding-top: 10em;
-  padding-bottom: 5em;
-  margin-bottom: 0;
-  border-radius: 0;
-}
-
-.overlay {
-  background-color: transparentize($brand-primary, 0.65);
-  width: 100%;
-  height: 100%;
-}
-
-.hero-secondary {
-  max-width: 75%;
-  margin: auto;
-}
-
-.main-info {
-  background-color: $section-bg-color;
-}
-
-.steps {
-  padding-top: 2em;
-  padding-bottom: 2em;
-  margin-bottom: 1em;
-}
-
-.check-value {
-  text-align: center;
-  padding: 4em 1em;
 }
 
 .btn-xl {
@@ -70,34 +17,6 @@ html, body {
   font-size: 24px;
   line-height: 1.333;
   border-radius: 6px;
-}
-
-.testimonials {
-  padding-top: 1em;
-  padding-bottom: 2em;
-
-  .user-block {
-    margin-top: 1em;
-
-    .user-image {
-      float: left;
-      margin-right: 1em;
-    }
-
-    .user-info {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-}
-
-.testimonial {
-  max-width: 85%;
-  margin: 1em auto;
-  padding: 2em;
-  border-radius: 5px;
-  background-color: lighten(#c5deea, 13%);
-  font-size: 1.2em;
 }
 
 footer {
