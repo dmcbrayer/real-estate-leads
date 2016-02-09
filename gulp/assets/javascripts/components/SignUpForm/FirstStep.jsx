@@ -36,7 +36,7 @@ export default class FirstStep extends React.Component {
                       handleChange={this.props.handleChange} />
 
         <div className="text-center">
-          <button onClick={this.handleClick} className="btn btn-primary btn-xl">Send my report</button>
+          <button onClick={this.handleClick} className="btn btn-primary btn-xl"><span className="fa fa-paper-plane-o"></span>  Send my report</button>
         </div>
       </div>
     )

@@ -1,23 +1,27 @@
 
-<%= render 'layouts/navbar' %>
-<div id="checkvalue"></div>
 
-<section class="jumbotron-hero container">
-  <div class="text-center">
-    <% if @location %>
-      <h1>What's your home in <%= @location %> worth?</h1>
-    <% else %>
-      <h1>What's your home worth?</h1>
-    <% end %>
-    <p class="hero-secondary">The market has shifted, and home values have changed. If you're thinking about selling soon, check your home's value below for free.</p>
-  </div>
-  <div class="text-center">
-    <%= form_tag('/map', method: :get) do %>
-      <%= text_field_tag :address, nil, required: true, class: "address-input" %>
-      <%= hidden_field_tag :latitude, id: "latitude" %>
-      <%= hidden_field_tag :longitude, id: "longitude" %>
-      <button type="submit" class="btn btn-primary search-button"><span class="fa fa-search fa-3x"></span></button>
-    <% end %>
+<div id="checkvalue"></div>
+<section class="container-fluid home-bg">
+  <div class="overlay">
+    <%= render 'layouts/navbar' %>
+    <div class="jumbotron-hero">
+      <div class="text-center">
+        <% if @location %>
+          <h1>What's your home in <%= @location %> worth?</h1>
+        <% else %>
+          <h1>Are you in the money?</h1>
+        <% end %>
+        <p class="hero-secondary">The real estate market is ever changing.  Is now the right time for you to sell?  If you're thinking of selling, enter your address below to get your free value report.</p>
+      </div>
+      <div class="text-center">
+        <%= form_tag('/map', method: :get) do %>
+          <%= text_field_tag :address, nil, required: true, class: "address-input" %>
+          <%= hidden_field_tag :latitude, id: "latitude" %>
+          <%= hidden_field_tag :longitude, id: "longitude" %>
+          <button type="submit" class="btn btn-primary search-button"><span class="fa fa-search fa-3x"></span></button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>
 <section class="main-info">
@@ -25,36 +29,36 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="testimonial">
-          <span class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita sint molestias architecto quia ab vel excepturi animi ipsum, necessitatibus sequi perspiciatis aperiam dignissimos ipsam quisquam sed quibusdam.</span>
+          <span class="quote">We tried some other services but the values seemed way off.  Once we received our customized valuation report we knew we had made the right decision.  Our house was actually worth a good bit more than we thought!</span>
           <div class="user-block">
-            <img src="http://placehold.it/75x75" class="user-image img-circle" />
+            <%= image_tag 'SusanandJeff.png', class: "user-image img-circle" %>
             <div class="user-info">
-              <h4>Steve Johnson</h4>
-              <h6>Sold a damn house</h6>
+              <h4>Susan and Jeff C.</h4>
+              <h6>Hoover, AL</h6>
             </div>
           </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="testimonial">
-          <span class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita sint molestias architecto quia ab vel excepturi animi ipsum, necessitatibus sequi perspiciatis aperiam dignissimos ipsam quisquam sed quibusdam.</span>
+          <span class="quote">You guys made the process so simple.  Your report helped us plan our move and I am happy to say our house sold within 2 weeks.  Couldn't be happier!</span>
           <div class="user-block">
-            <img src="http://placehold.it/75x75" class="user-image img-circle" />
+            <%= image_tag 'MarkandLiz.png', class: "user-image img-circle" %>
             <div class="user-info">
-              <h4>Steve Johnson</h4>
-              <h6>Sold a damn house</h6>
+              <h4>Mark and Liz M.</h4>
+              <h6>Birmingham, AL</h6>
             </div>
           </div>
         </div>       
       </div>
       <div class="col-sm-4">
         <div class="testimonial">
-          <span class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita sint molestias architecto quia ab vel excepturi animi ipsum, necessitatibus sequi perspiciatis aperiam dignissimos ipsam quisquam sed quibusdam.</span>
+          <span class="quote">I was thinking of moving but once I received my report I realized that now probably wasn't the best time to maximize my investment.  I stayed put for now but this saved me a huge hassle of listing my home and then finding out I couldn't get what I wanted.  Will certainly use again.</span>
           <div class="user-block">
-            <img src="http://placehold.it/75x75" class="user-image img-circle" />
+            <%= image_tag 'jenniferk.png', class: "user-image img-circle" %>
             <div class="user-info">
-              <h4>Steve Johnson</h4>
-              <h6>Sold a damn house</h6>
+              <h4>Jennifer K.</h4>
+              <h6>Vestavia, AL</h6>
             </div>
           </div>
         </div>
@@ -66,19 +70,19 @@
     <div class="container">
       <div class"row">
         <div class="col-sm-4 text-center">
-          <img src="http://placehold.it/150x150" class="img-circle" />
-          <h3>Enter Your Information</h3>
-          <p>Tell us about your home, and where to send your report.</p>
+          <%= image_tag 'tell_us.svg' %>
+          <h3>Tell Us About You</h3>
+          <p>You provide basic info about your home and where we should send your report.</p>
         </div>
         <div class="col-sm-4 text-center">
-          <img src="http://placehold.it/150x150" class="img-circle" />
-          <h3>We'll Create a Report</h3>
-          <p>We'll build a personalized report for your home.</p>
+          <%= image_tag 'our_system.svg' %>
+          <h3>Our System Goes to Work</h3>
+          <p>We'll create a report and give you the lowdown on what your home is really worth.</p>
         </div>
         <div class="col-sm-4 text-center">
-          <img src="http://placehold.it/150x150" class="img-circle" />
+          <%= image_tag 'receive_report.svg' %>
           <h3>You'll Receive the Report</h3>
-          <p>We will email you the report and follow up to see what you think.</p>
+          <p>We will email you the report and touch base to make sure you are completely satisfied.</p>
         </div>
       </div>
     </div>
