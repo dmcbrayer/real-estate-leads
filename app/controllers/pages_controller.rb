@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @longitude = params[:longitude] || "-86.80248999999998"
   end
 
+  def privacy
+  end
+
 end

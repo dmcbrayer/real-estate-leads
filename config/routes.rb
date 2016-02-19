@@ -43,9 +43,11 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
   root to: 'pages#home'
-
   get '/map', to: 'pages#map'
+  get '/privacy', to: 'pages#privacy'
+
   get '/leads', to: 'leads#new'
   post '/leads', to: 'leads#create'
   patch '/leads/:id', to: 'leads#update'
