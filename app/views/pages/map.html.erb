@@ -22,10 +22,13 @@
   var infoContent = '<div style="width:250px; height:auto; padding:10px; font-size:18px; color:#0d3455; font-family: "Montserrat";">' + address + '</div>';
 
   var map;
+  var isDraggable = !('ontouchstart' in document.documentElement);
+
   var mapInit = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
       center: {lat: latitude, lng: longitude},
       zoom: 16,
+      draggable: isDraggable,
       scrollwheel: false
     });
 
