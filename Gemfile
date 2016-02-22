@@ -12,6 +12,7 @@ gem 'react-rails', '~> 1.5.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'puma'
 gem 'figaro'
+gem 'gibbon'
 
 group :production do
   gem 'rails_12factor'
