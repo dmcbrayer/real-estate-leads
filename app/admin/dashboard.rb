@@ -3,7 +3,15 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   page_action :export_mailchimp, method: :get do
-    puts "NAAAAATTUUUUUUUREEEE"
+    
+    # Get all the leads that have an email address
+    leads = Lead.where.not(email: nil || "")
+
+    # Add each lead to mailchimp
+    leads.each do |lead|
+        AddToMailchimp.new(lead).call
+    end
+
     redirect_to admin_dashboard_path, notice: "Leads successfully exported"
   end
 
