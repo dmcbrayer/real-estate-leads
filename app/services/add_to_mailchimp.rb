@@ -1,11 +1,12 @@
 class AddToMailchimp
+  include ApplicationHelper
 
   LEADS_LIST='53691ce293'
 
-  def initialize(user)
+  def initialize(lead)
     @gibbon = Gibbon::Request.new
     @list = LEADS_LIST
-    @user = user
+    @lead = lead
   end
 
   def call
@@ -22,11 +23,14 @@ class AddToMailchimp
   def build_hash
     hash = {
       body: {
-        email_address: @user.email,
+        email_address: @lead.email,
         status: "subscribed",
         merge_fields: {
-          FNAME: @user.first_name,
-          LNAME: @user.last_name
+          FNAME: @lead.first_name || '',
+          LNAME: @lead.last_name || '',
+          ADDRESS: @lead.address || '',
+          HORIZON: @lead.survey_response || '',
+          PHONE: @lead.phone || '',
         }
       }
     }
