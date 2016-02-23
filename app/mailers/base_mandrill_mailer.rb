@@ -28,6 +28,6 @@ class BaseMandrillMailer < ActionMailer::Base
     send_mail(email, subject, body)
   rescue Mandrill::Error => e
     puts "A mandrill error occurred: #{e.class} - #{e.message}"
-    raise
+    false
   end
 end

@@ -27,6 +27,7 @@ export default class SignUpForm extends React.Component {
     this.renderStep       = this.renderStep.bind(this);
     this.renderError      = this.renderError.bind(this);
     this.advanceAndSubmit = this.advanceAndSubmit.bind(this);
+    this.sendEmail        = this.sendEmail.bind(this);
   }
 
   componentDidMount() {
@@ -106,6 +107,25 @@ export default class SignUpForm extends React.Component {
     }.bind(this));
   }
 
+  sendEmail() {
+    var leadId = this.state.lead.id;
+    var url = '/leads/send_email'
+
+    var data = {
+      lead_id: leadId
+    };
+
+    request.post(url)
+    .send(data)
+    .end(function(err, res) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log("Email sent successfully");
+      }
+    });
+  }
+
   renderError() {
     if(this.state.error !== null) {
       return <h3>{this.state.error}</h3>;
@@ -127,7 +147,8 @@ export default class SignUpForm extends React.Component {
                             handleChange={this.handleChange}
                             onSubmit={this.advanceAndSubmit} />;
       case 3:
-        return <LoadingStep onLoaded={this.advanceStep} />;
+        return <LoadingStep onLoaded={this.advanceStep}
+                            sendEmail={this.sendEmail} />;
       case 4:
         return <LastStep />;
     }

@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   get '/leads', to: 'leads#new'
   post '/leads', to: 'leads#create'
+  post '/leads/send_email', to: 'leads#send_email'
   patch '/leads/:id', to: 'leads#update'
 
   # The priority is based upon order of creation: first created -> highest priority.

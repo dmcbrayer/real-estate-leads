@@ -3,12 +3,12 @@ import React from 'react';
 export default class LoadingStep extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
     setTimeout(this.props.onLoaded, 2000);
     fbq('track', 'Lead');
+    this.props.sendEmail();
   }
 
   render() {

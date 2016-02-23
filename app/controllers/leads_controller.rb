@@ -38,6 +38,15 @@ class LeadsController < ApplicationController
     end
   end
 
+  def send_email
+    lead = Lead.find(params[:lead_id])
+    if LeadMailer.lead_message(lead).deliver_now 
+      render json: { messsage: 'okey dokey' }, status: :ok
+    else
+      render json: { errors: ["Email could not be sent."]}, status: 422
+    end
+  end
+
   private
 
   def lead_params
