@@ -13,6 +13,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'puma'
 gem 'figaro'
 gem 'gibbon'
+gem 'mandrill-api'
 
 group :production do
   gem 'rails_12factor'
