@@ -1,6 +1,5 @@
-class LeaderMailer < BaseMandrillMailer
-
-  LEAD_FOLLOWUP_TEMPLATE = ''
+class LeadMailer < BaseMandrillMailer
+  LEAD_FOLLOWUP_TEMPLATE = 'your-home-value'
 
   def lead_message(lead)
     
@@ -9,7 +8,7 @@ class LeaderMailer < BaseMandrillMailer
     }
 
     email = lead.email
-    subject = "Your report is on its way"
+    subject = "Your free home value report is on its way!"
     template = LEAD_FOLLOWUP_TEMPLATE
 
     construct_and_send(email, subject, template, merge_vars)
