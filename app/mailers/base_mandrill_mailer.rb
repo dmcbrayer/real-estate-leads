@@ -3,7 +3,7 @@ require 'mandrill'
 class BaseMandrillMailer < ActionMailer::Base
 
   default(
-    from: "\"Dan\" <dan@effortlesshomevalues.com>",
+    from: "\"Dan at Effortless Home Values\" <dan@effortlesshomevalues.com>",
     reply_to: 'info@effortlesshomevalues.com',
   )
 
