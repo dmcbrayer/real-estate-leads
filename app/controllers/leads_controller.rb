@@ -47,6 +47,17 @@ class LeadsController < ApplicationController
     end
   end
 
+  def get_value
+    lead = Lead.find(params[:id])
+    value = GetZestimate.new(address: lead.street_address, city_state: lead.city_state).call
+    
+    if value != nil
+      render json: { value: value }, status: :ok
+    else
+      render json: { errors: ['No value for that address'] }, status: 422
+    end
+  end
+
   private
 
   def lead_params
