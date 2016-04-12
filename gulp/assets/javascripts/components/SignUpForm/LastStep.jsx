@@ -18,9 +18,9 @@ export default class LastStep extends React.Component {
       return (
         <div className="panel panel-default">
           <div className="panel-body">
-            <h1>Your home's value is { moneyValue }</h1>
+            <h1>Your home's estimated value is { moneyValue }</h1>
 
-            <h3>Additional information will be emailed to you shortly</h3>
+            <h3>Does it seem off?  Automated valuations can be a little tricky.  Watch your email for your customized analysis from a local real estate professional.  No strings attached.</h3>
           </div>
         </div>
       )

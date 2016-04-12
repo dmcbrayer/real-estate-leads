@@ -21,7 +21,7 @@ export default class SelectAndPhone extends React.Component {
         <input type="tel" value={this.props.phone}
                           className="form-control" 
                           onChange={this.props.handleChange.bind(this, 'phone')} 
-                          placeholder="Phone (for verification only)"/>
+                          placeholder="Phone (for most accurate results)"/>
         <br />
       </div>
     )

@@ -29,7 +29,7 @@ export default class FirstStep extends React.Component {
     return(
       <div className="form-sidebar">
         <h1>Got it!</h1>
-        <p>Where should we email your free report?</p>
+        <p>Where should our local expert send your free report?</p>
 
         <NameAndEmail name={this.props.name} 
                       email={this.props.email} 
