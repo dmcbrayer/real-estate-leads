@@ -38,5 +38,13 @@ class Lead < ActiveRecord::Base
       "No Response"
     end
   end
+
+  def street_address
+    address.split(',').first
+  end
+
+  def city_state
+    address.split(',').slice(1,2).join(',').strip
+  end
   
 end

@@ -17,6 +17,7 @@ export default class SignUpForm extends React.Component {
       selectValue: 1,
       step: 1,
       error: null,
+      value: ''
     }
 
     this.advanceStep      = this.advanceStep.bind(this);
@@ -28,6 +29,7 @@ export default class SignUpForm extends React.Component {
     this.renderError      = this.renderError.bind(this);
     this.advanceAndSubmit = this.advanceAndSubmit.bind(this);
     this.sendEmail        = this.sendEmail.bind(this);
+    this.getValue         = this.getValue.bind(this);
   }
 
   componentDidMount() {
@@ -126,6 +128,20 @@ export default class SignUpForm extends React.Component {
     });
   }
 
+  getValue() {
+    var leadId = this.state.lead.id;
+    var url = '/value/' + leadId;
+
+    request.get(url)
+    .end(function(err,res) {
+      if(err) {
+        console.log(err);
+      } else {
+        this.setState({value: res.body.value});
+      }
+    }.bind(this));
+  }
+
   renderError() {
     if(this.state.error !== null) {
       return <h3>{this.state.error}</h3>;
@@ -150,7 +166,8 @@ export default class SignUpForm extends React.Component {
         return <LoadingStep onLoaded={this.advanceStep}
                             sendEmail={this.sendEmail} />;
       case 4:
-        return <LastStep />;
+        return <LastStep getValue={this.getValue}
+                          value={this.state.value} />;
     }
   }
 

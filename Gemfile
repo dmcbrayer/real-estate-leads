@@ -14,6 +14,8 @@ gem 'puma'
 gem 'figaro'
 gem 'gibbon'
 gem 'mandrill-api'
+gem 'httparty'
+gem 'rubillow'
 
 group :production do
   gem 'rails_12factor'
