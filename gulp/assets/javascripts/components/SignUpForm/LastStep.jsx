@@ -1,4 +1,5 @@
 import React from 'react';
+import accounting from 'accounting';
 
 export default class LastStep extends React.Component {
   constructor(props) {
@@ -13,19 +14,26 @@ export default class LastStep extends React.Component {
 
   renderValue() {
     if(this.props.value) {
-      return <p>This property's value is { this.props.value }</p>
+      let moneyValue = accounting.formatMoney(this.props.value);
+      return (
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <h1>Your home's value is { moneyValue }</h1>
+
+            <h3>Additional information will be emailed to you shortly</h3>
+          </div>
+        </div>
+      )
 
     } else {
-      return <p>No value is listed for this property!</p>
+      return <h1>No value is listed for this property!</h1>
     }
   }
 
   render() {
     return(
       <div className="form-sidebar">
-        <h1>Success!</h1>
-
-        <p>Your information will be sent to you shortly!</p>
+        <h1>Your property has been found!</h1>
         
         { this.renderValue() }
       </div>
